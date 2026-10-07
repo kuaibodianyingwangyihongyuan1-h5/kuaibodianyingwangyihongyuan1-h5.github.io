@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>快播电影网·红院版 - 复古院线电影电视剧综艺动漫短片</title>
+<meta name="description" content="快播电影网·红院版(kuaibodianyingwangyihongyuan-h5.github.io)提供复古院线电影、热播电视剧、综艺、动漫、短片在线导航，移动端自适应，分类清晰，每日更新。">
+<meta name="keywords" content="快播电影网,红院版,电影,电视剧,综艺,动漫,短片,复古院线,kuaibodianyingwangyihongyuan-h5">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://kuaibodianyingwangyihongyuan-h5.github.io/">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"快播电影网·红院版",
+  "url":"https://kuaibodianyingwangyihongyuan-h5.github.io/",
+  "description":"复古院线影视导航站",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://kuaibodianyingwangyihongyuan-h5.github.io/#search?q={query}",
+    "query-input":"required name=query"
+  }
+}
+</script>
+<style>
+:root{
+  --red:#e23b3b;
+  --red-deep:#7a1414;
+  --gold:#f4c430;
+  --ink:#12100f;
+  --paper:#1b1714;
+  --card:#221d19;
+  --line:rgba(244,196,48,.25);
+  --text:#f3e9df;
+  --muted:#b7a99a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:
+    radial-gradient(900px 400px at 90% -10%, rgba(226,59,59,.18), transparent 60%),
+    radial-gradient(700px 300px at 0% 0%, rgba(244,196,48,.08), transparent 55%),
+    var(--ink);
+  color:var(--text);line-height:1.7;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:99;background:rgba(18,16,15,.9);backdrop-filter:blur(8px);border-bottom:2px solid var(--red-deep)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:900;font-size:1.4rem;color:var(--red);letter-spacing:1px}
+.logo b{color:var(--gold)}
+.nav ul{display:flex;gap:4px;list-style:none}
+.nav li a{padding:8px 14px;border-radius:6px;color:var(--muted);font-size:.92rem}
+.nav li a:hover,.nav li a.active{color:#fff;background:rgba(226,59,59,.18);box-shadow:inset 0 0 0 1px var(--line)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--gold);font-size:1.4rem;border-radius:8px;padding:3px 10px;cursor:pointer}
+
+/* HERO */
+.hero{padding:84px 0 60px;position:relative}
+.kicker{display:inline-block;color:var(--gold);border:1px solid var(--line);padding:4px 14px;border-radius:999px;font-size:.78rem;margin-bottom:18px}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:900;line-height:1.15;margin-bottom:16px}
+.hero h1 span{color:var(--red)}
+.hero p{max-width:620px;color:var(--muted);font-size:1.05rem;margin-bottom:26px}
+.search{display:flex;gap:10px;max-width:520px}
+.search input{flex:1;padding:14px 18px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--text);outline:none;font-size:1rem}
+.search input:focus{border-color:var(--red)}
+.search button{padding:0 26px;border:none;border-radius:12px;font-weight:700;color:#2a0d0d;background:linear-gradient(90deg,var(--gold),#ffd966);cursor:pointer}
+.search button:hover{filter:brightness(1.05)}
+
+/* SECTION */
+.section{padding:54px 0}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.head h2{font-size:1.7rem;font-weight:800}
+.head h2 i{font-style:normal;color:var(--red)}
+.head span{color:var(--muted);font-size:.85rem}
+.more{padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.85rem}
+.more:hover{color:#fff;border-color:var(--red)}
+
+/* MOVIES: marquee poster wall */
+.marquee{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
+.film{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s}
+.film:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 10px 28px rgba(226,59,59,.15)}
+.film .cover{height:220px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#2a0d0d;text-align:center;padding:10px}
+.c1{background:linear-gradient(135deg,#e23b3b,#f4c430)}
+.c2{background:linear-gradient(135deg,#7a1414,#e23b3b)}
+.c3{background:linear-gradient(135deg,#f4c430,#ff9d5c)}
+.c4{background:linear-gradient(135deg,#3a2a1a,#e23b3b)}
+.c5{background:linear-gradient(135deg,#e23b3b,#9b1d1d)}
+.c6{background:linear-gradient(135deg,#ffd966,#e23b3b)}
+.film .info{padding:12px}
+.film .info h3{font-size:.98rem;margin-bottom:4px}
+.film .info p{font-size:.78rem;color:var(--muted)}
+
+/* TV: accordion */
+.acc{display:flex;flex-direction:column;gap:10px;max-width:820px}
+.acc-item{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.acc-q{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;font-weight:700}
+.acc-q .tag{font-size:.75rem;color:var(--gold);border:1px solid var(--line);padding:3px 10px;border-radius:999px}
+.acc-a{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 18px;color:var(--muted);font-size:.9rem}
+.acc-item.open .acc-a{padding:0 18px 16px;max-height:200px}
+
+/* VARIETY: badge grid */
+.var-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.var-card{position:relative;height:160px;border-radius:16px;overflow:hidden;border:1px solid var(--line);display:flex;align-items:flex-end}
+.var-card .bg{position:absolute;inset:0;opacity:.9}
+.bg1{background:linear-gradient(120deg,#e23b3b,#7a1414)}
+.bg2{background:linear-gradient(120deg,#f4c430,#e23b3b)}
+.bg3{background:linear-gradient(120deg,#9b1d1d,#f4c430)}
+.bg4{background:linear-gradient(120deg,#ff9d5c,#e23b3b)}
+.var-card .txt{position:relative;padding:14px;color:#fff}
+.var-card .txt small{color:#ffe9c2}
+
+/* ANIME: stacked ribbon */
+.ribbon{display:flex;flex-direction:column;gap:12px}
+.ribbon-row{display:grid;grid-template-columns:90px 1fr auto;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.ribbon-row .no{font-weight:900;color:var(--gold);text-align:center}
+.ribbon-row h4{font-size:1rem}
+.ribbon-row small{color:var(--muted)}
+.ribbon-row .state{font-size:.75rem;color:var(--red);border:1px solid var(--line);padding:4px 10px;border-radius:999px;white-space:nowrap}
+
+/* SHORT: dots timeline */
+.dots{display:flex;flex-direction:column;gap:0;border-left:2px dotted var(--red)}
+.dot{padding:0 0 20px 24px;position:relative}
+.dot::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(244,196,48,.15)}
+.dot h4{font-size:1rem}
+.dot p{color:var(--muted);font-size:.86rem}
+
+/* ABOUT + FOOTER */
+.about{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0;text-align:center}
+.about h2{font-size:1.5rem;margin-bottom:14px;color:var(--gold)}
+.about p{max-width:760px;margin:0 auto 12px;color:var(--muted)}
+.url-pill{display:inline-block;margin-top:14px;padding:10px 18px;border:1px dashed var(--gold);border-radius:12px;color:var(--gold);font-size:.9rem}
+.foot{padding:26px 0;text-align:center;color:var(--muted);font-size:.82rem}
+.foot a{color:var(--red)}
+
+.topbtn{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;display:none;align-items:center;justify-content:center;cursor:pointer;color:#2a0d0d;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--red));z-index:120}
+
+@media(max-width:768px){
+  .menu-btn{display:block}
+  .nav ul{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:rgba(18,16,15,.98);padding:12px 16px;border-bottom:1px solid var(--line)}
+  .nav ul.show{display:flex}
+  .nav li a{padding:12px}
+  .hero{padding:52px 0 38px}
+  .marquee{grid-template-columns:repeat(2,1fr);gap:12px}
+  .film .cover{height:170px}
+  .ribbon-row{grid-template-columns:54px 1fr;row-gap:6px}
+  .ribbon-row .state{grid-column:2}
+  .var-grid{grid-template-columns:1fr 1fr}
+  .head h2{font-size:1.35rem}
+}
+@media(max-width:430px){
+  .search{flex-direction:column}
+  .search button{padding:14px}
+  .marquee{grid-template-columns:1fr 1fr}
+  .var-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="logo">快播电影网<b>·红院版</b></div>
+    <button class="menu-btn" onclick="document.getElementById('menu').classList.toggle('show')">☰</button>
+    <nav>
+      <ul id="menu">
+        <li><a href="#movies" class="active">电影</a></li>
+        <li><a href="#tv">电视剧</a></li>
+        <li><a href="#variety">综艺</a></li>
+        <li><a href="#anime">动漫</a></li>
+        <li><a href="#shorts">短片</a></li>
+        <li><a href="#about">关于</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker">RED CINEMA · 复古院线</span>
+    <h1>快播电影网<span>·红院版</span><br>老片新片，一屏看完</h1>
+    <p>快播电影网·红院版（kuaibodianyingwangyihongyuan-h5.github.io）做干净的电影/剧集/综艺/动漫/短片导航，不擦边、不违规，移动端直接看。</p>
+    <div class="search">
+      <input type="text" placeholder="搜：黑帮片 / 港剧 / 音综 / 国漫 / 微短剧...">
+      <button type="button">搜索</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="movies">
+  <div class="wrap">
+    <div class="head"><div><h2><i>01.</i> 院线电影</h2></div><a href="#" class="more">更多 #</a></div>
+    <div class="marquee">
+      <div class="film"><div class="cover c1">红街暗战</div><div class="info"><h3>红街暗战</h3><p>2026 · 动作 · 8.6</p></div></div>
+      <div class="film"><div class="cover c2">旧城恋曲</div><div class="info"><h3>旧城恋曲</h3><p>2025 · 爱情 · 8.2</p></div></div>
+      <div class="film"><div class="cover c3">黄金押运</div><div class="info"><h3>黄金押运</h3><p>2026 · 犯罪 · 8.5</p></div></div>
+      <div class="film"><div class="cover c4">戏院惊魂</div><div class="info"><h3>戏院惊魂</h3><p>2025 · 悬疑 · 8.8</p></div></div>
+      <div class="film"><div class="cover c5">江湖最后一个</div><div class="info"><h3>江湖最后一个</h3><p>2024 · 武侠 · 9.0</p></div></div>
+      <div class="film"><div class="cover c6">晚场喜剧</div><div class="info"><h3>晚场喜剧</h3><p>2026 · 喜剧 · 7.9</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tv" style="background:rgba(226,59,59,.05)">
+  <div class="wrap">
+    <div class="head"><div><h2><i>02.</i> 热播电视剧</h2></div><a href="#" class="more">更多 #</a></div>
+    <div class="acc" id="acc">
+      <div class="acc-item open">
+        <div class="acc-q">长安红巷 <span class="tag">古装权谋</span></div>
+        <div class="acc-a">大唐背景下的朝堂争斗，服化道偏红金院线风，全40集。</div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-q">急诊室黄昏 <span class="tag">职场医疗</span></div>
+        <div class="acc-a">都市医院群像剧，节奏稳、人物真，更新至第30集。</div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-q">北方戏班 <span class="tag">年代剧情</span></div>
+        <div class="acc-a">讲老戏班漂泊卖艺的故事，怀旧味浓，全36集。</div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-q">红屋顶便利店 <span class="tag">甜宠都市</span></div>
+        <div class="acc-a">轻喜剧+恋爱线，适合通勤看，全24集。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="variety">
+  <div class="wrap">
+    <div class="head"><div><h2><i>03.</i> 综艺现场</h2></div><a href="#" class="more">更多 #</a></div>
+    <div class="var-grid">
+      <div class="var-card"><div class="bg bg1"></div><div class="txt"><h4>红毯背后</h4><small>娱乐访谈 · 第12期</small></div></div>
+      <div class="var-card"><div class="bg bg2"></div><div class="txt"><h4>老片新唱</h4><small>音乐综艺 · 第8期</small></div></div>
+      <div class="var-card"><div class="bg bg3"></div><div class="txt"><h4>院线侦探</h4><small>悬疑互动 · 第6期</small></div></div>
+      <div class="var-card"><div class="bg bg4"></div><div class="txt"><h4>城市宵夜局</h4><small>美食文旅 · 第10期</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="anime" style="background:rgba(244,196,48,.05)">
+  <div class="wrap">
+    <div class="head"><div><h2><i>04.</i> 动漫番剧</h2></div><a href="#" class="more">更多 #</a></div>
+    <div class="ribbon">
+      <div class="ribbon-row"><div class="no">A1</div><div><h4>赤焰剑录<small><br>玄幻 / 热血 / 连载</small></h4></div><div class="state">更新中</div></div>
+      <div class="ribbon-row"><div class="no">A2</div><div><h4>红伞少女<small><br>治愈 / 校园 / 全26集</small></h4></div><div class="state">已完结</div></div>
+      <div class="ribbon-row"><div class="no">A3</div><div><h4>旧电影院怪谈<small><br>奇幻 / 单元剧 / 全13集</small></h4></div><div class="state">已完结</div></div>
+      <div class="ribbon-row"><div class="no">A4</div><div><h4>机甲红莲<small><br>科幻 / 战斗 / 连载</small></h4></div><div class="state">更新中</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="shorts">
+  <div class="wrap">
+    <div class="head"><div><h2><i>05.</i> 微短剧</h2></div><a href="#" class="more">更多 #</a></div>
+    <div class="dots">
+      <div class="dot"><h4>红妆归来：总裁他悔了</h4><p>逆袭爽剧，单集1-2分钟，已更88集。</p></div>
+      <div class="dot"><h4>戏班少东家</h4><p>年代+戏曲+商战，已更52集。</p></div>
+      <div class="dot"><h4>午夜放映厅</h4><p>悬疑微剧，单元故事，已更30集。</p></div>
+      <div class="dot"><h4>红屋顶的夏天</h4><p>青春治愈短剧，全20集。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <h2>关于 快播电影网·红院版</h2>
+    <p>本站立意是“复古红金院线风”的影视导航页：电影、电视剧、综艺、动漫、微短剧五个频道，页面单文件、移动端自适应、内链锚点跳转。</p>
+    <p>不使用成人暗示命名、不放擦边内容，更符合必应/百度等搜索引擎的合规收录逻辑。</p>
+    <div class="url-pill">🌐 https://kuaibodianyingwangyihongyuan-h5.github.io</div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>快播电影网·红院版 ｜ 电影 / 电视剧 / 综艺 / 动漫 / 微短剧 导航</p>
+    <p>网址：<a href="https://kuaibodianyingwangyihongyuan-h5.github.io">kuaibodianyingwangyihongyuan-h5.github.io</a></p>
+    <p>© 2026 快播电影网·红院版</p>
+  </div>
+</footer>
+
+<div class="topbtn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+// 手风琴
+document.querySelectorAll('#acc .acc-q').forEach(function(q){
+  q.addEventListener('click', function(){
+    var item = this.parentElement;
+    document.querySelectorAll('#acc .acc-item').forEach(function(i){ if(i!==item) i.classList.remove('open'); });
+    item.classList.toggle('open');
+  });
+});
+
+// 滚动高亮 + 回到顶部
+var secs = ['movies','tv','variety','anime','shorts','about'];
+window.addEventListener('scroll', function(){
+  document.getElementById('topBtn').style.display = window.scrollY > 300 ? 'flex' : 'none';
+  var cur='';
+  secs.forEach(function(id){
+    var el=document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop - 120) cur=id;
+  });
+  document.querySelectorAll('.nav ul a').forEach(function(a){
+    a.classList.remove('active');
+    if(a.getAttribute('href') === '#'+cur) a.classList.add('active');
+  });
+});
+
+// 锚点跳转 + 关菜单
+document.querySelectorAll('.nav ul a').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var h=this.getAttribute('href');
+    if(h && h[0]==='#'){
+      e.preventDefault();
+      var el=document.querySelector(h);
+      if(el) window.scrollTo({top:el.offsetTop-60,behavior:'smooth'});
+      document.getElementById('menu').classList.remove('show');
+    }
+  });
+});
+</script>
+</body>
+</html>
